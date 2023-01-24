@@ -7,7 +7,7 @@
 
 struct Image
 {
-    Image(std::filesystem::path const &image_path);
+    explicit Image(std::filesystem::path const &image_path);
     explicit Image(std::uint32_t rows, std::uint32_t cols, int type, std::vector<std::uint8_t> const &image_data) noexcept;
     void plot() const noexcept;
 
