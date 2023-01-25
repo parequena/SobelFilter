@@ -19,8 +19,10 @@ add_executable(SobelFilter ${SRC_FILES} main.cpp)
 
 # Add OpenCV.
 find_package( OpenCV REQUIRED )
+find_package(TBB REQUIRED)
+find_package(OpenMP REQUIRED)
 include_directories( ${OpenCV_INCLUDE_DIRS} )
-target_link_libraries( SobelFilter ${OpenCV_LIBS} )
+target_link_libraries( SobelFilter TBB::tbb ${OpenCV_LIBS} OpenMP::OpenMP_CXX)
 
 # Add include as directoy.
 target_include_directories(SobelFilter PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)

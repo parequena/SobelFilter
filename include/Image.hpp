@@ -11,11 +11,6 @@ struct Image
     explicit Image(std::uint32_t rows, std::uint32_t cols, int type, std::vector<std::uint8_t> const &image_data) noexcept;
     void plot() const noexcept;
 
-    constexpr auto rows() const noexcept -> std::uint32_t { return rows_; }
-    constexpr auto cols() const noexcept -> std::uint32_t { return cols_; }
-    constexpr auto type() const noexcept -> int { return type_; }
-    constexpr auto data() const noexcept -> std::vector<std::uint8_t> const & { return data_; }
-
     inline static void Sobel_OpenCV(std::filesystem::path const &image_path)
     {
         // Load image.
@@ -36,12 +31,13 @@ struct Image
         cv::waitKey(0);
     }
 
+    inline cv::Mat image() const noexcept { return image_; }
+
+    cv::Mat sobelPablo3() const noexcept;
+
 private:
-    std::uint32_t rows_{};
-    std::uint32_t cols_{};
-    int type_{};
     std::string image_path_{};
-    std::vector<std::uint8_t> data_{};
+    cv::Mat image_{};
 };
 
 #endif /* IMAGE_HPP */

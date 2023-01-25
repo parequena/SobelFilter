@@ -1,3 +1,9 @@
+# new_york 4k file.
+assets/new_york.jpg+
+
+# build_folders
+build*
+
 # Residual files
 */*.gch
 
