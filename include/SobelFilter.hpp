@@ -10,17 +10,6 @@
 
 #include <opencv4/opencv2/core.hpp>
 
-/*
-1 0 -1
-2 0 -2
-1 0 -1
-
-A B C D E F
-G H I J K L
-M N Ñ O P Q
-R S T U V W
-*/
-
 struct SobelFilter
 {
   static constexpr std::array<int, 9> kernel_x{1, 0, -1, 2, 0, -2, 1, 0, -1};
